@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_26_172517) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_26_180625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "guest_rooms", force: :cascade do |t|
     t.bigint "guest_id"
-    t.bigint "rooms_id"
+    t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["guest_id"], name: "index_guest_rooms_on_guest_id"
-    t.index ["rooms_id"], name: "index_guest_rooms_on_rooms_id"
+    t.index ["room_id"], name: "index_guest_rooms_on_room_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -47,6 +47,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_26_172517) do
   end
 
   add_foreign_key "guest_rooms", "guests"
-  add_foreign_key "guest_rooms", "rooms", column: "rooms_id"
+  add_foreign_key "guest_rooms", "rooms"
   add_foreign_key "rooms", "hotels"
 end
