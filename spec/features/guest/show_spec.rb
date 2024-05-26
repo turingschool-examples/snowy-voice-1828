@@ -12,7 +12,7 @@ RSpec.describe Guest do
     expect(page).to have_content("100")
     expect(page).to have_content("Standard")
     expect(page).to have_content("Echo Mountain Inn")
-    save_and_open_page
+    # save_and_open_page
 
   end
 
@@ -37,10 +37,10 @@ RSpec.describe Guest do
     GuestRoom.create!(guest: @guest1, room: @room1)
     
     visit "/guests/#{@guest1.id}"
-
-    expect(page).to have_form("Add Room")
-    fill_in "Room", with:"#{@room2.id}"
-    click_link "Submit"
+    # save_and_open_page
+    expect(page).to have_button("Add Room")
+    fill_in :room_id, with:"#{@room2.id}"
+    click_button "Add Room"
     expect(current_path).to eq("/guests/#{@guest1.id}")
     expect(page).to have_content('Deluxe Room')
     expect(page).to have_content(150)

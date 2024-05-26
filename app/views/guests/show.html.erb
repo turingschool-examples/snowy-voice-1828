@@ -9,3 +9,8 @@
   <p>Hotel Name: <%= room.hotel.name %></p>
   <% end %>
 </ul>
+
+<%= form_with url: "/guest_rooms?guest_id=#{@guest.id}", method: :post, local:true do |form| %>
+  <%= form.text_field :room_id %>
+  <%= form.submit "Add Room" %>
+<% end %>
