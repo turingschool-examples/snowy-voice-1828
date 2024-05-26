@@ -7,8 +7,12 @@ RSpec.describe Guest do
     @room1 = Room.create!(rate: 100, suite: 'Standard', hotel_id: "#{@hotel1.id}")
     GuestRoom.create!(guest: @guest1, room: @room1)
     
-    visit "/guests/1"
-
+    visit "/guests/#{@guest1.id}"
+    expect(page).to have_content("George Russell")
+    expect(page).to have_content("100")
+    expect(page).to have_content("Standard")
+    expect(page).to have_content("Echo Mountain Inn")
+    save_and_open_page
 
   end
 end
