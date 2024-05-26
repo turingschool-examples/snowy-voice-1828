@@ -1,4 +1,9 @@
 <h1><%= @guest.name %></h1>
+<%= form_with url: "/guests/#{@guest.id}", method: :post, data: {turbo: false} do |form| %>
+  <%= form.label :room_id, "Add a room (by id #): " %>
+  <%= form.text_field :room_id %>
+  <%= form.submit "Submit" %>
+<% end %>
 <% @guest.rooms.each do |room| %>
 <p>Room: <%= "#{room.suite} Suite in the #{room.hotel.name} - $#{room.rate} per night" %></p>
 <% end %>

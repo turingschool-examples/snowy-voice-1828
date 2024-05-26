@@ -19,12 +19,21 @@ RSpec.describe "the guests show page" do
     GuestRoom.create(room_id: @room4.id, guest_id: @guest3.id)
     GuestRoom.create(room_id: @room3.id, guest_id: @guest4.id)
   end
-  it "displays all guest's names, rooms, and attributes" do
+  it "displays guest name, rooms, and attributes" do
     visit "/guests/#{@guest1.id}"
 
     expect(page).to have_content(@guest1.name)
     expect(page).to have_content("Room: Presidential Suite in the Echo Mountain Inn - $125 per night")
     expect(page).to have_content("Room: Junior Suite in the Echo Mountain Inn - $75 per night")
     expect(page).to_not have_content(@guest2.name)
+  end
+
+  it "user can add new room to guest" do
+    visit "/guests/#{@guest1.id}"
+
+    fill_in(:room_id, with: @room3.id)
+    click_button "Submit"
+    expect(current_path).to eq("/guests/#{@guest1.id}")
+    expect(page).to have_content("Room: Presidential Suite in the Reverb Hill Lodge - $150 per night")
   end
 end
