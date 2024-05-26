@@ -26,7 +26,8 @@ RSpec.describe Room do
     expect(page).to have_content("Deluxe Room")
     expect(page).to have_content(150)
     expect(page).to have_content("Echo Mountain Inn")
-    expect(page).to have_content(1)
+    expect(page).to have_content("total guest count: 1")
+    # save_and_open_page
 
   end
 end
