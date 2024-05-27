@@ -1,4 +1,4 @@
 class GuestRoom < ApplicationRecord
-  belongs_to :rooms
-  belongs_to :guests
+  belongs_to :room
+  belongs_to :guest
 end
