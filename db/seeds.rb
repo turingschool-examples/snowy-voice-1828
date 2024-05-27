@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+guest = Guest.create(name: "Frank Sinatra")
+hotel = Hotel.create(name: "The St Laurent", location: "Asbury Park")
+room = Room.create(rate: 1000, suite: "Presidential")
