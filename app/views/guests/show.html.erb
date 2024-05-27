@@ -10,3 +10,11 @@
   </ul>
   <% end %>
 </div>
+
+<div id="add_room_form">
+  <%= form_with url: "/guests/#{@guest.id}/guest_rooms", method: :post, data: {turbo: false} do |form| %>
+    <%= form.label :room_id, "Room ID" %>
+    <%= form.number_field :room_id %>
+    <%= form.submit "Submit" %>
+  <% end %>
+</div>
