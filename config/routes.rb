@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   #rooms
   get "/rooms", to: "rooms#index"
+
+  #hotels
+  get "/hotels/:id", to: "hotels#show"
 end
