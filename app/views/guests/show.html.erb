@@ -8,10 +8,10 @@
 <% end %>
 
 <h3>Rooms</h3>
-  <% @guest.rooms.each do |room|%>
+  <% @guest.rooms.each do |room| %>
     <div>
-      <%= "Suite: #{room.suite}"%><br>
-      <%= "Nightly Rate: #{room.rate}"%><br>
-      <%= "Hotel: #{room.hotel.name}"%>
+      <%= "Suite: #{room.suite}" %><br>
+      <%= "Nightly Rate: #{room.rate}" %><br>
+      <%= "Hotel: #{room.hotel.name}" %>
     </div><br>
   <% end %>

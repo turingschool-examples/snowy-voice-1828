@@ -34,12 +34,11 @@ RSpec.describe "the guests show page" do
     it "can add guest to a room" do
       visit "/guests/#{@guest1.id}"
 
-      save_and_open_page
       expect(find("form")).to have_content("Add room")
 
       fill_in "room", with: "#{@room1.id}"
       click_on "Submit"
-      save_and_open_page
+
       expect(page).to have_content("Suite: #{@room1.suite}")
       expect(page).to have_content("Hotel: #{@hotel.name}")
       expect(page).to have_content("Nightly Rate: #{@room1.rate}")
