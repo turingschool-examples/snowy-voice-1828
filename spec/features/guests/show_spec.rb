@@ -23,8 +23,9 @@ RSpec.describe "the guests show page" do
       hotel_1 = Hotel.create!(name: 'Echo Mountain Inn', location: 'Echo Mountain')
       room_1 = hotel_1.rooms.create!(rate: 125, suite: "Presidential")
       RoomsGuest.create!(room: room_1, guest: guest_1)
+      
       visit "/guests/#{guest_1.id}"
-
+      # save_and_open_page
       expect(page).to have_content(room_1.suite)
       expect(page).to have_content(room_1.rate)
       expect(page).to have_content(room_1.hotel.name)
