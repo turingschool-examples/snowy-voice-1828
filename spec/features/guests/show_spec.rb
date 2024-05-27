@@ -46,15 +46,15 @@ RSpec.describe "the guests show page" do
       hotel_1 = Hotel.create!(name: 'Echo Mountain Inn', location: 'Echo Mountain')
       room_1 = hotel_1.rooms.create!(rate: 125, suite: "Presidential")
       hotel_2 = Hotel.create!(name: 'White Lotus', location: 'Maui')
-      room_2 = hotel_1.rooms.create!(rate: 1500, suite: "Pineapple")
+      room_2 = hotel_2.rooms.create!(rate: 1500, suite: "Pineapple", id: 999)
       RoomsGuest.create!(room: room_1, guest: guest_1)
       
       visit "/guests/#{guest_1.id}"
       # save_and_open_page
       expect(page).to have_content("Add a room")
-			fill_in :room_id, with: "2"
+			fill_in :room_id, with: "999"
 			click_button("Submit")
-      # save_and_open_page
+      save_and_open_page
       expect(current_path).to eq("/guests/#{guest_1.id}")
       expect(page).to have_content("White Lotus")
       expect(page).to have_content("Pineapple")

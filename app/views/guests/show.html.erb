@@ -6,4 +6,11 @@
   <p><strong>Hotel: <%= room.hotel.name %></strong></p>
   <p>Suite: <%= room.suite %></p>
   <p>Rate: $<%= room.rate %></p>
+<% end %>
+
+<h4> Add a room: <h4>
+  <%= form_with url: "/guests/#{@guest.id}", method: :post, data: { turbo: false } do |f| %>
+    <%= f.label "Room ID" %>
+    <%= f.text_field :room_id %>
+    <%= f.submit "Submit" %>
   <% end %>
