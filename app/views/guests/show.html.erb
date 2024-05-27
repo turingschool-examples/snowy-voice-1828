@@ -4,3 +4,11 @@
   <p> Room: <%= room.suite %> </p>
   <p> Rate: <%= room.rate %> </p><br>
 <% end %>
+
+<%= "Add a Room to this Guest" %>
+<%= form_with url: "/guest_rooms/#{@guest.id}", method: :post, local: true do |form| %>
+  <br> <%= form.label :room_id, "Room ID:" %>
+  <%= form.text_field :room_id %>
+
+  <br> <%= form.submit "Submit" %>
+<% end %>

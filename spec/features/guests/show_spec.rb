@@ -11,7 +11,7 @@ RSpec.describe 'the guest show page' do
 
   describe 'as a visitor' do
     it 'shows a visitor and all the rooms that they have stayed in' do
-      visit "/guests/#{guest.id}"
+      visit "/guests/#{@guest.id}"
 
       expect(page).to have_content("Name: #{@guest.name}")
       expect(page).to have_content("Hotel: #{@hotel.name}")
@@ -24,7 +24,7 @@ RSpec.describe 'the guest show page' do
 
       expect(page).to have_content('Add a Room')
 
-      fill_in 'Room ID', with: @room2.id
+      fill_in 'Room ID:', with: @room2.id
 
       click_button 'Submit'
 
