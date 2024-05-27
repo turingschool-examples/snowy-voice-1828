@@ -40,6 +40,7 @@ RSpec.describe "Room Index Page" do
                 expect(page).to have_content("Rate: #{room2.rate}")
                 expect(page).to have_content("Hotel: #{hotel.name}")
                 expect(page).to have_content("Number of Guests: 1")
+                # save_and_open_page
             end
         end
     end
