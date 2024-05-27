@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_200413) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_27_201029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guest_rooms", force: :cascade do |t|
+    t.bigint "guest_id", null: false
+    t.bigint "rooms_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_guest_rooms_on_guest_id"
+    t.index ["rooms_id"], name: "index_guest_rooms_on_rooms_id"
+  end
 
   create_table "guests", force: :cascade do |t|
     t.string "name"
@@ -20,6 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_200413) do
     t.bigint "rooms_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_rooms_id", null: false
+    t.index ["guest_rooms_id"], name: "index_guests_on_guest_rooms_id"
     t.index ["rooms_id"], name: "index_guests_on_rooms_id"
   end
 
@@ -36,9 +47,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_200413) do
     t.bigint "hotel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_rooms_id", null: false
+    t.index ["guest_rooms_id"], name: "index_rooms_on_guest_rooms_id"
     t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
   end
 
+  add_foreign_key "guest_rooms", "guests"
+  add_foreign_key "guest_rooms", "rooms", column: "rooms_id"
+  add_foreign_key "guests", "guest_rooms", column: "guest_rooms_id"
   add_foreign_key "guests", "rooms", column: "rooms_id"
+  add_foreign_key "rooms", "guest_rooms", column: "guest_rooms_id"
   add_foreign_key "rooms", "hotels"
 end
