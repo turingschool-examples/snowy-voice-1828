@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   #guests
   get "/guests/:id", to: "guests#show"
+
+  #guest_rooms
+  post "/guests/:guest_id/guest_rooms", to: "guest_rooms#create"
 end
