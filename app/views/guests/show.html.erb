@@ -1,9 +1,10 @@
-<h1> <%= @guest.name => </h1>
-<% @guest.rooms.each do |room| %>
-  <h3><%= room.name %></h3>
-  <p> <% room.name.each do |room| %> </p>
-      <p> Suite Level:<%= room.suite %> </p>
-      <p> Nightly Rate:<%= room.rate %> </p>
-      <p> Hotel:<%= room.hotel.name %> </p>
-  <% end %>
+
+<h1>Guest: <%= @guest.name %></h1>
+<h3> Nights: <%= @guest.nights %> </h3>
+<h2>Rooms Stayed In:</h2>
+<% @rooms.each do |room| %>
+    <p> Suite: <%= room.suite %> </p>
+    <p> Nightly Rate: <%= room.rate %> </p>
+    <p> Hotel: <%= room.hotel.name %> </p>
+    <br>
 <% end %>

@@ -3,7 +3,6 @@ class AddGuestsTable < ActiveRecord::Migration[7.1]
     create_table :guests do |t|
       t.string :name
       t.integer :nights
-      t.references :rooms, null: false, foreign_key: true
 
       t.timestamps
     end
