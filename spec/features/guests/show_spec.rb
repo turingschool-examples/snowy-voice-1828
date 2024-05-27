@@ -56,7 +56,6 @@ RSpec.describe "Guests Show Page" do
         expect(page).to have_content("Rate: #{@room_3.rate}")
         expect(page).to have_content("Hotel Name: #{@hotel_1.name}")
       end
-      save_and_open_page
     end
   end
 end
