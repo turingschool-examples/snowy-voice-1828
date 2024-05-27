@@ -43,4 +43,21 @@ RSpec.describe "guest show page", type: :feature do
     end
   end
 
+  # As a visitor
+  # When I visit a guest's show page
+  # Then I see a form to add a room to this guest.
+  # When I fill in a field with the id of an existing room
+  # And I click submit
+  # Then I am redirected back to the guest's show page
+  # And I see the room now listed under this guest's rooms.
+  describe "as a visitor" do
+    describe "when I visit a guest's show page, then I see a form to add a room to this guest" do
+      it "When I fill in a field with the id of an existing room and I click submit, then I am redirected back to the guest's show page, and I see the room now listed under this guest's rooms" do
+        visit "/guests"
+
+        expect(page).to button("Submit")
+      end
+    end
+  end
+
 end
