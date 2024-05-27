@@ -3,7 +3,3 @@ class Room < ApplicationRecord
   has_many :guest_rooms
   has_many :guests, through: :guest_rooms
 end
-
-def hotel_name
-  hotel.name
-end
