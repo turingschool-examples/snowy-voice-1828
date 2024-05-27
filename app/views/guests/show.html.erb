@@ -1,13 +1,16 @@
-<h1> <%=@guest.name%>% </h1>
+<h1> <%=@guest.name%> </h1>
 
 <h2> Rooms </h2>
 <ul>
     <% @guest.rooms.each do |room| %>
         <li>
             Suite: <%= room.suite %>
+            <br>
             Rate: <%= room.rate %>
+            <br>
             Hotel: <%= room.hotel.name %>
         </li>
+        <br>
     <% end %>
 </ul>
 
