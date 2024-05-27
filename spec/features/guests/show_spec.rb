@@ -25,4 +25,5 @@ RSpec.describe "the guest show" do
     expect(page).to have_content(@room. suite)
     expect(page).to have_content(@hotel.name)
   end
+  # writing this note as a timestamp for my commits to show that I am only taking 3 hours
 end
