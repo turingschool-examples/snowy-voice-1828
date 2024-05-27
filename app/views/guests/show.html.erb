@@ -10,3 +10,14 @@
 	</li>
 <% end %>
 </ul>
+
+<h2>Add Room:</h2>
+<%= form_with url: "/guests/#{@guest.id}/add_room", method: :post do %>
+	<div>
+		<%= label_tag :room_id, "Room ID" %>
+		<%= text_field_tag :room_id %>
+	</div>
+	<div>
+		<%= submit_tag "Add Room" %>
+	</div>
+<% end %>

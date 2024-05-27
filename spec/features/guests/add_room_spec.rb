@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe "Add a Room to the guest" do
     it "should add the room to the guest and show it on the show page" do
         hotel = Hotel.create!(name: "Caesar's")
-        room1 = hotel.room.create!(suite: "Presidential", rate: 400)
-        room2 = hotel.room.create!(suite: "Deluxe", rate: 200)
+        room1 = hotel.rooms.create!(suite: "Presidential", rate: 400)
+        room2 = hotel.rooms.create!(suite: "Deluxe", rate: 200)
         guest = Guest.create!(name: "John Lennon")
         Booking.create!(guest: guest, room: room1)
 
@@ -19,7 +19,7 @@ RSpec.describe "Add a Room to the guest" do
         fill_in "Room ID", with: room2.id
         click_button "Add Room"
 
-        expect(current_path).to eq("/guests")
+        expect(current_path).to eq("/guests/#{guest.id}")
         expect(page).to have_content("Deluxe")
         expect(page).to have_content("200")
         expect(page).to have_content("Caesar's")
