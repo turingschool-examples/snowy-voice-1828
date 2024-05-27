@@ -1,0 +1,7 @@
+<h2> Hotel Info </h2>
+<% @hotel.rooms.each do |room| %>
+  <%# <% binding.pry %> 
+  <p>Unique guests: <% room.guests.each do |guest| %></p>
+    <%= guest.name %>
+  <% end %>
+<% end %>

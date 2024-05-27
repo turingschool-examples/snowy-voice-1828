@@ -20,8 +20,8 @@ RSpec.describe "the hotel show page" do
       RoomsGuest.create!(room: room_2, guest: guest_2)
 
       visit "/hotels/#{hotel_1.id}"
-
-      expect(page).to have_content("Unique guests: 2")
+      save_and_open_page
+      expect(page).to have_content("Unique guests: Bob Dylan, Jim James")
     end
   end
 end
