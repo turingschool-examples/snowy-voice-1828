@@ -13,16 +13,16 @@ RSpec.describe 'the room index page' do
   describe 'as a visitor' do
     it 'shows all rooms' do
       visit '/rooms'
-
+      save_and_open_page
       expect(page).to have_content("Suite: #{@room.suite}")
       expect(page).to have_content("Rate: #{@room.rate}")
       expect(page).to have_content("Hotel: #{@hotel.name}")
-      expect(page).to have_content("Guest Count: #{@room.guests.count}")
+      expect(page).to have_content("Guest Count: #{@room.guest_count}")
 
       expect(page).to have_content("Suite: #{@room2.suite}")
       expect(page).to have_content("Rate: #{@room2.rate}")
       expect(page).to have_content("Hotel: #{@hotel.name}")
-      expect(page).to have_content("Guest Count: #{@room2.guests.count}")
+      expect(page).to have_content("Guest Count: #{@room2.guest_count}")
     end
   end
 end
