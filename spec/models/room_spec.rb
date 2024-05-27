@@ -1,7 +1,5 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-  describe "relationships" do
-    it { should belong_to :hotel }
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

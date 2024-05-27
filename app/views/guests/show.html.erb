@@ -1,2 +1,12 @@
-<h1>Guests#show</h1>
-<p>Find me in app/views/guests/show.html.erb</p>
+<h1><%= @guest.name %></h1>
+
+<h2>Rooms:</h2>
+<ul>
+  <% @guest.rooms.each do |room| %>
+	<li>
+		Suite: <%= room.suite %><br>
+		Nightly Rate: <%= room.rate %><br>
+		Hotel: <%= room.hotel.name %>
+	</li>
+<% end %>
+</ul>
