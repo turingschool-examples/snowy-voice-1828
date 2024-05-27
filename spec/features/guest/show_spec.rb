@@ -34,11 +34,11 @@ RSpec.describe "guest show page", type: :feature do
       it "I see the guest's name, and I see a list of all the rooms they've stayed in, including the room's suite, nightly rate, and the name of the hotel that it belongs to" do
         visit "/guests"
 
-        expect(page).to have_content(guest.name)
-        expect(page).to have_content(guest.room)
-        expect(page).to have_content(hotel.type)
-        expect(page).to have_content(hotel.rating)
-        expect(page).to have_content(hotel.name)
+        expect(page).to have_content(@guest.name)
+        expect(page).to have_content(@guest.room)
+        expect(page).to have_content(@hotel.type)
+        expect(page).to have_content(@hotel.rating)
+        expect(page).to have_content(@hotel.name)
       end
     end
   end
