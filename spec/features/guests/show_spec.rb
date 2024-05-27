@@ -8,7 +8,7 @@ require "rails_helper"
 # And I see a list of all the rooms they've stayed in
 # including the room's suite, nightly rate, and the name of the hotel that it belongs to.
 
-RSpec.describe "the guests show page" do
+RSpec.describe "the guest show page" do
   context "as a visitor" do 
     it "I see the guest's name" do 
       guest_1 = Guest.create!(name: "Jim James")
