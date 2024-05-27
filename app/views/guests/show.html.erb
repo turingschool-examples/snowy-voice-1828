@@ -1,0 +1,17 @@
+<%= "Name: #{@guest.name}"%>
+
+<h2> Add a Room </h2>
+<%= form_with url: "/guests/#{@guest.id}", method: :put, local: true do |f| %>
+  <%= f.label :Add_Room %>
+  <%= f.text_field :room %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<h3>Rooms</h3>
+  <% @guest.rooms.each do |room|%>
+    <div>
+      <%= "Suite: #{room.suite}"%><br>
+      <%= "Nightly Rate: #{room.rate}"%><br>
+      <%= "Hotel: #{room.hotel.name}"%>
+    </div><br>
+  <% end %>
