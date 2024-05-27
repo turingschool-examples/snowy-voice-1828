@@ -13,7 +13,7 @@ RSpec.describe "the guests show page" do
     it "I see the guest's name" do 
       guest_1 = Guest.create!(name: "Jim James")
     
-      visit "/guests/#{guest.id}"
+      visit "/guests/#{guest_1.id}"
 
       expect(page).to have_content(guest_1.name)
     end
