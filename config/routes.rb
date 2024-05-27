@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   #guest_rooms
   post "/guests/:guest_id/guest_rooms", to: "guest_rooms#create"
+
+  #rooms
+  get "/rooms", to: "rooms#index"
 end
