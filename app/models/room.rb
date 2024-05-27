@@ -6,4 +6,8 @@ class Room < ApplicationRecord
   def guest_count
     guests.count
   end
+
+  def room_guests
+    guests.pluck(:name)
+  end
 end

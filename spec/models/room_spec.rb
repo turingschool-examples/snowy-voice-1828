@@ -24,5 +24,11 @@ RSpec.describe Room, type: :model do
         expect(@room_1.guest_count).to eq(2)
       end
     end
+
+    # describe "#room_guests" do
+    #   it "returns the guests that have stayed in all rooms" do
+    #     expect(@room_1.room_guests).to eq([@guest_1.name, @guest_2.name])
+    #   end
+    # end
   end
 end
