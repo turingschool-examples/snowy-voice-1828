@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "the guest show page" do
+RSpec.describe "the hotel show page" do
   before :each do
     @hotel1 = Hotel.create!(name: 'Echo Mountain Inn', location: 'Echo Mountain')
     @hotel2 = Hotel.create!(name: 'Reverb Hill Lodge', location: 'Reverb Hill')
@@ -19,21 +19,12 @@ RSpec.describe "the guest show page" do
     GuestRoom.create(room_id: @room4.id, guest_id: @guest3.id)
     GuestRoom.create(room_id: @room3.id, guest_id: @guest4.id)
   end
-  it "displays guest name, rooms, and attributes" do
-    visit "/guests/#{@guest1.id}"
 
-    expect(page).to have_content(@guest1.name)
-    expect(page).to have_content("Room: Presidential Suite in the Echo Mountain Inn - $125 per night")
-    expect(page).to have_content("Room: Junior Suite in the Echo Mountain Inn - $75 per night")
-    expect(page).to_not have_content(@guest2.name)
-  end
+  it "shows list of unique guest names" do
+    visit "/hotels/#{@hotel1.id}"
 
-  it "user can add new room to guest" do
-    visit "/guests/#{@guest1.id}"
-
-    fill_in(:room_id, with: @room3.id)
-    click_button "Submit"
-    expect(current_path).to eq("/guests/#{@guest1.id}")
-    expect(page).to have_content("Room: Presidential Suite in the Reverb Hill Lodge - $150 per night")
+    expect(page).to have_content("Echo Mountain Inn")
+    expect(page).to have_content("Charlize Theron", count: 1)
+    expect(page).to have_content("Tom Hardy", count: 1)
   end
 end

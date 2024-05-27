@@ -1,0 +1,5 @@
+<h1><%= @hotel.name %></h1>
+<h2>Guests:</h2>
+<% @hotel.distinct_names.each do |name|%>
+  <p><%= name %><br></p>
+<%end%>
